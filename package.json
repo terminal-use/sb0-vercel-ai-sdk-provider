@@ -1,6 +1,6 @@
 {
   "name": "@sb0/vercel-ai-sdk-provider",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "The official Vercel AI SDK provider for sb0",
   "type": "module",
   "repository": {
@@ -9,7 +9,8 @@
   },
   "keywords": [
     "ai",
-    "sb0"
+    "sb0",
+    "terminal use"
   ],
   "author": "sb0 info@sb0.dev",
   "license": "Apache-2.0",
@@ -21,7 +22,7 @@
   "bugs": {
     "url": "https://github.com/terminal-use/sb0-vercel-ai-sdk-provider/issues"
   },
-  "homepage": "https://github.com/author/library#readme",
+  "homepage": "https://sb0.dev",
   "types": "./dist/index.d.mts",
   "exports": {
     ".": "./dist/index.mjs",

@@ -119,7 +119,6 @@ export class Sb0Agent implements LanguageModelV2 {
   private createStreamTransformer() {
     let activeTextId: string | null = null;
     let finishReason: LanguageModelV2FinishReason = 'unknown';
-
     return new TransformStream<ParseResult<Sb0SseChunk>, LanguageModelV2StreamPart>({
       start(controller) {
         controller.enqueue({ type: 'stream-start', warnings: [] });
@@ -136,20 +135,7 @@ export class Sb0Agent implements LanguageModelV2 {
         // Handle AssistantMessage with content blocks
         if (v?.message_type === 'AssistantMessage' && v?.payload?.content) {
           const content = v.payload.content;
-
           for (const block of content) {
-            // Handle text blocks
-            if (block.text) {
-              if (activeTextId == null) {
-                activeTextId = 'txt-0';
-                controller.enqueue({ id: activeTextId, type: 'text-start' });
-              }
-              controller.enqueue({ id: activeTextId, type: 'text-delta', delta: block.text });
-              // Close the text block immediately to maintain order
-              controller.enqueue({ id: activeTextId, type: 'text-end' });
-              activeTextId = null;
-            }
-
             // Handle tool use blocks
             if (block.id && block.name && block.input !== undefined) {
               controller.enqueue({
