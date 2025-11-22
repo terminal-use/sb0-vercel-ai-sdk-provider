@@ -1,0 +1,49 @@
+{
+  "name": "@sb0/vercel-ai-sdk-provider",
+  "version": "0.0.1",
+  "description": "The official Vercel AI SDK provider for sb0",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/terminal-use/sb0-vercel-ai-sdk-provider.git"
+  },
+  "keywords": [
+    "ai",
+    "sb0"
+  ],
+  "author": "sb0 info@sb0.dev",
+  "license": "Apache-2.0",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "bugs": {
+    "url": "https://github.com/terminal-use/sb0-vercel-ai-sdk-provider/issues"
+  },
+  "homepage": "https://github.com/author/library#readme",
+  "types": "./dist/index.d.mts",
+  "exports": {
+    ".": "./dist/index.mjs",
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "build": "tsdown",
+    "dev": "tsdown --watch",
+    "test": "vitest",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "pnpm run build"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.0",
+    "bumpp": "^10.3.1",
+    "tsdown": "^0.16.0",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.7"
+  },
+  "dependencies": {
+    "@ai-sdk/provider": "^2.0.0",
+    "@ai-sdk/provider-utils": "^3.0.16",
+    "ai": "^5.0.89"
+  }
+}
